@@ -1,24 +1,14 @@
 import json
 
-def greet_user():
+from get_user import get_user
+from create_user import create_user
 
-    while True:
-        user = input('Enter username: ')
-        filename = f'{user}.json'
-        
-        try:
-            with open(filename) as f:
-                username = json.load(f)
-        except FileNotFoundError:
-            confirm = input('This username does not exist, would you like to create this username? (y/n) ')
-            if confirm.lower() == 'y':
-                with open(filename, 'w') as f:
-                    json.dump(user, f)
-                    print(f'{user} is your new username.')
-                    break
-            else:
-                print('Please start over.\n')
-                continue
-        else:
-            print(f'Welcome back, {user}.')
-            break
+def greet_user():
+    """Greet the user."""
+    username = get_user()
+    if username:
+        print(f'Welcome back, {username}.')
+    else:
+        print("We are not finding that username, let's create one.")
+        username = create_user()
+        print(f'Welcome to the vault, {username}.')

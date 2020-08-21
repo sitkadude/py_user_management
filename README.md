@@ -3,4 +3,4 @@ A python program that writes and retrieves user data from json files.</br>
 
 INSTRUCTIONS: </br>
 (1) download repo </br>
-(2) run `python user.py` from command line
+(2) run `python login.py` from command line
