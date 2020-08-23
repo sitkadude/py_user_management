@@ -1,3 +1,5 @@
+import json
+
 def get_user():
     """Get username if available."""
     user = input('What is your username? ')
